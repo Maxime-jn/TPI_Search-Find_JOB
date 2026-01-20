@@ -114,7 +114,6 @@ Le système distingue trois types d'utilisateurs :
 - **OS** : Windows 11
 - **Stockage** : 
   - Disque SSD (développement)
-  - Disque dur (sauvegarde projet)
 
 ### Outils et services
 
