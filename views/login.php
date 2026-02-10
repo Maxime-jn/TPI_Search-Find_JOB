@@ -1,6 +1,11 @@
 <div class="auth-page">
     <div class="auth-card">
         <h2>Connexion</h2>
+        <?php if (!empty($error)): ?>
+            <div class="alert alert-danger">
+                <?= htmlspecialchars($error) ?>
+            </div>
+        <?php endif; ?>
         <form action="/login" method="POST">
             <div class="form-group">
                 <label for="username">Nom d'utilisateur</label>

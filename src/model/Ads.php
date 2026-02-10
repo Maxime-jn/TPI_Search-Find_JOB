@@ -3,60 +3,73 @@
 namespace maxime\sfo\model;
 use maxime\sfo\data\Database;
 
-class Batches
+class Ads
 {
 
-    public ?int $idAds;
-    public ?int $user_id;
+    public ?int $adsId;
+    public ?int $userId;
     public ?string $title;
     public ?string $description;
-    public ?string $created_at;
-    public ?string $updated_at;
+    public ?string $createdAt;
+    public ?string $updatedAt;
 
     public function __construct()
     {
-        $this->idAds = null;
-        $this->user_id = null;
+        $this->adsId = null;
+        $this->userId = null;
         $this->description = null;
-        $this->created_at = null;
-        $this->updated_at = null;
+        $this->createdAt = null;
+        $this->updatedAt = null;
     }
+
     /**
-     * Summary of selectAllGalery
+     * Get all ads
      * @return array
      */
-    // static function selectAllAds()
-    // {
-    //     $sql = "SELECT `idAds`, `user_id`, `title`, `description`, `created_at`, `updated_at` FROM `ads`";
+    static function selectAllAds()
+    {
+        $sql = "SELECT `idAds`, `user_id`, `title`, `description`, `created_at`, `updated_at` , keywords.name as keyword
+                FROM `ads`, ad_keywords, keywords
+                WHERE idAds = ad_keywords.ad_id AND ad_keywords.keyword_id = keywords.idKeywords";
+        $statement = Database::dbrun($sql);
+        $statement->setFetchMode(\PDO::FETCH_PROPS_LATE | \PDO::FETCH_CLASS, self::class);
+        return $statement->fetchAll();
+    }
 
-    //     $statement = Database::dbrun($sql);
-    //     $statement->setFetchMode(\PDO::FETCH_PROPS_LATE | \PDO::FETCH_CLASS, self::class);
-    //     return $statement->fetchAll();
-
-    // }
-
-
-    // static function addAds($user_id, $title, $description, )
+    /**
+     * Add new ad
+     * @param int $userId
+     * @param string $title
+     * @param string $description
+     */
+    // static function addAds($userId, $title, $description)
     // {
     //     $sql = "INSERT INTO `ads`(`user_id`, `title`, `description`, `created_at`, `updated_at`) 
-    //     VALUES (:name, :typeBatches)";
-
+    //     VALUES (:userId, :title, :description, NOW(), NOW())";
     //     $param = [
-    //         ":name" => $name,
-    //         ":typeBatches" => $type,
+    //         ":userId" => $userId,
+    //         ":title" => $title,
+    //         ":description" => $description,
     //     ];
     //     Database::dbrun($sql, $param);
     // }
 
-    // static function deleteAds($idBatche)
+    /**
+     * Delete ad by id
+     * @param int $adsId
+     */
+    // static function deleteAds($adsId)
     // {
-    //     $sql = "DELETE FROM `Batches` WHERE idBatche = :id";
-
-    //     $param = [":id" => $idBatche];
-
+    //     $sql = "DELETE FROM `ads` WHERE idAds = :id";
+    //     $param = [":id" => $adsId];
     //     Database::dbRun($sql, $param);
     // }
 
+    /**
+     * Update ad
+     */
     // static function updateAds()
+    // {
+    // }
 
 }

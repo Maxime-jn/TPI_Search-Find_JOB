@@ -453,6 +453,428 @@ main {
 }
 
 /* ========================================
+   Annonces - Header
+   ======================================== */
+
+.ads-header {
+    background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+    color: white;
+    padding: 60px 0;
+    text-align: center;
+}
+
+.ads-header h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.ads-header p {
+    opacity: 0.9;
+    margin-bottom: 20px;
+}
+
+/* ========================================
+   Annonces - Filtres / Recherche
+   ======================================== */
+
+.ads-section {
+    padding: 40px 0;
+}
+
+.ads-filters {
+    margin-bottom: 30px;
+}
+
+.search-bar {
+    display: flex;
+    gap: 10px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.search-input {
+    flex: 1;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: #3498db;
+}
+
+/* ========================================
+   Annonces - Grille de cartes
+   ======================================== */
+
+.ads-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 25px;
+}
+
+.ad-card {
+    background-color: white;
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+}
+
+.ad-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.ad-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.ad-date {
+    color: #7f8c8d;
+    font-size: 0.85rem;
+}
+
+.ad-badge {
+    background-color: #27ae60;
+    color: white;
+    font-size: 0.75rem;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-weight: 600;
+}
+
+.ad-title {
+    color: #2c3e50;
+    margin-bottom: 10px;
+    font-size: 1.15rem;
+}
+
+.ad-title a {
+    color: #2c3e50;
+    transition: color 0.3s;
+}
+
+.ad-title a:hover {
+    color: #3498db;
+}
+
+.ad-description {
+    color: #7f8c8d;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 15px;
+    flex: 1;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.ad-meta {
+    margin-bottom: 15px;
+}
+
+.ad-author {
+    color: #95a5a6;
+    font-size: 0.85rem;
+}
+
+.ad-card-footer {
+    border-top: 1px solid #ecf0f1;
+    padding-top: 15px;
+}
+
+.btn-sm {
+    padding: 8px 16px;
+    font-size: 0.85rem;
+}
+
+/* ========================================
+   Détail Annonce
+   ======================================== */
+
+.ad-detail-section {
+    padding: 40px 0;
+}
+
+.ad-detail-back {
+    margin-bottom: 25px;
+}
+
+.btn-outline-dark {
+    display: inline-block;
+    padding: 10px 20px;
+    border: 2px solid #2c3e50;
+    color: #2c3e50;
+    border-radius: 5px;
+    font-weight: 500;
+    transition: all 0.3s;
+}
+
+.btn-outline-dark:hover {
+    background-color: #2c3e50;
+    color: white;
+}
+
+.ad-detail-card {
+    background-color: white;
+    border-radius: 10px;
+    padding: 40px;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+}
+
+.ad-detail-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.ad-detail-header h1 {
+    font-size: 1.8rem;
+    color: #2c3e50;
+    margin-bottom: 5px;
+}
+
+.ad-detail-author {
+    color: #7f8c8d;
+}
+
+.ad-detail-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-danger {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-danger:hover {
+    background-color: #c0392b;
+}
+
+.ad-detail-meta {
+    display: flex;
+    gap: 25px;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ecf0f1;
+    flex-wrap: wrap;
+}
+
+.meta-item {
+    color: #95a5a6;
+    font-size: 0.9rem;
+}
+
+.ad-detail-body {
+    margin-bottom: 30px;
+}
+
+.ad-detail-body h2 {
+    color: #2c3e50;
+    font-size: 1.3rem;
+    margin: 25px 0 12px;
+}
+
+.ad-detail-body h2:first-child {
+    margin-top: 0;
+}
+
+.ad-detail-body p {
+    color: #555;
+    line-height: 1.7;
+    margin-bottom: 10px;
+}
+
+.ad-detail-body ul {
+    padding-left: 20px;
+    margin-bottom: 15px;
+}
+
+.ad-detail-body ul li {
+    color: #555;
+    padding: 5px 0;
+    line-height: 1.6;
+}
+
+.ad-detail-keywords {
+    padding-top: 20px;
+    border-top: 1px solid #ecf0f1;
+}
+
+.ad-detail-keywords h3 {
+    color: #2c3e50;
+    margin-bottom: 12px;
+}
+
+.keywords-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.keyword-tag {
+    background-color: #ebf5fb;
+    color: #3498db;
+    padding: 5px 14px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+/* ========================================
+   Formulaire Annonce (Ajout / Modif)
+   ======================================== */
+
+.ad-form-section {
+    padding: 40px 0;
+}
+
+.ad-form-back {
+    margin-bottom: 25px;
+}
+
+.ad-form-card {
+    background-color: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.ad-form-card h2 {
+    color: #2c3e50;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.ad-form-card textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-family: inherit;
+    resize: vertical;
+    transition: border-color 0.3s;
+}
+
+.ad-form-card textarea:focus {
+    outline: none;
+    border-color: #3498db;
+}
+
+.form-hint {
+    display: block;
+    margin-top: 5px;
+    color: #95a5a6;
+    font-size: 0.8rem;
+}
+
+.file-upload-area {
+    border: 2px dashed #ddd;
+    border-radius: 10px;
+    padding: 30px;
+    text-align: center;
+    transition: border-color 0.3s;
+    position: relative;
+    cursor: pointer;
+}
+
+.file-upload-area:hover {
+    border-color: #3498db;
+}
+
+.file-upload-area input[type="file"] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.file-upload-area p {
+    color: #7f8c8d;
+    margin-bottom: 5px;
+}
+
+.file-upload-area small {
+    color: #95a5a6;
+}
+
+.form-actions {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+    justify-content: center;
+}
+
+/* Médias actuels (page modif) */
+.current-media {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.media-thumb {
+    position: relative;
+    width: 100px;
+    height: 100px;
+}
+
+.media-placeholder {
+    width: 100%;
+    height: 100%;
+    background-color: #ecf0f1;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #7f8c8d;
+    font-size: 0.8rem;
+}
+
+.btn-remove-media {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    width: 24px;
+    height: 24px;
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+}
+
+.btn-remove-media:hover {
+    background-color: #c0392b;
+}
+
+/* ========================================
    Responsive
    ======================================== */
 
@@ -473,5 +895,29 @@ main {
     
     .hero p {
         font-size: 1rem;
+    }
+    
+    .ads-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .search-bar {
+        flex-direction: column;
+    }
+    
+    .ad-detail-header {
+        flex-direction: column;
+    }
+    
+    .ad-detail-card {
+        padding: 25px;
+    }
+    
+    .ad-form-card {
+        padding: 25px;
+    }
+    
+    .form-actions {
+        flex-direction: column;
     }
 }

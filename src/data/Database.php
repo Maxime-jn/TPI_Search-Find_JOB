@@ -2,6 +2,7 @@
 
 namespace maxime\sfo\data;
 
+
 class Database
 {
 
@@ -37,32 +38,36 @@ class Database
 
         return $statement;
     }
+
     /**
-     * Summary of beginTransaction
+     * Begin database transaction
      * @return bool
      */
     static function beginTransaction()
     {
         return self::db()->beginTransaction();
     }
+
     /**
-     * Summary of commit
+     * Commit database transaction
      * @return bool
      */
     static function commit()
     {
         return self::db()->commit();
     }
+
     /**
-     * Summary of rollback
+     * Rollback database transaction
      * @return bool
      */
     static function rollback()
     {
         return self::db()->rollBack();
     }
+
     /**
-     * Summary of lastInsertId
+     * Get last inserted id
      * @return bool|string
      */
     static function lastInsertId()

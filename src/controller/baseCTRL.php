@@ -2,23 +2,35 @@
 namespace maxime\sfo\controller;
 
 use Slim\Views\PhpRenderer;
-
+use maxime\sfo\model\Session;
 
 class baseCTRL
 {
 
-    static function redirectIndex($response, $location)
+    static function redirectWithStatus($response, $location)
     {
         return $response
             ->withHeader('Location', $location)
             ->withStatus(302);
     }
 
-    static function phpView($dataLayout, $response, $namePage)
+    static function renderView($layoutData, $response, $pageName)
     {
-        $phpView = new PhpRenderer(__DIR__ . '/../../views', $dataLayout);
+
+        if (Session::isConnected()) {
+            $layoutData = array_merge($layoutData ?? [], [
+                'isConnected' => true,
+                'username' => Session::getUsername(),
+            ]);
+        } else {
+            $layoutData = array_merge($layoutData ?? [], [
+                'isConnected' => false,
+            ]);
+        }
+
+        $phpView = new PhpRenderer(__DIR__ . '/../../views', $layoutData);
         $phpView->setLayout("layout.php");
-        return $phpView->render($response, $namePage);
+        return $phpView->render($response, $pageName);
     }
 
 }
