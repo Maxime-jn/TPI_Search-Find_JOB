@@ -72,6 +72,39 @@ CREATE TABLE `keywords` (
   `name` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+
+INSERT INTO `keywords` (`idKeywords`, `name`) VALUES
+(19, 'Administration système'),
+(27, 'Cloud'),
+(25, 'Communication'),
+(23, 'Comptabilité'),
+(17, 'Cybersécurité'),
+(29, 'Data Science'),
+(16, 'DevOps'),
+(13, 'Docker'),
+(20, 'Gestion de projet'),
+(14, 'Git'),
+(9, 'HTML/CSS'),
+(5, 'Java'),
+(3, 'JavaScript'),
+(11, 'Laravel'),
+(15, 'Linux'),
+(28, 'Machine Learning'),
+(22, 'Marketing digital'),
+(8, 'Node.js'),
+(2, 'PHP'),
+(4, 'Python'),
+(6, 'React'),
+(18, 'Réseau'),
+(24, 'Ressources humaines'),
+(10, 'SQL'),
+(26, 'Support technique'),
+(12, 'Symfony'),
+(30, 'Télétravail'),
+(31, 'Temps partiel'),
+(1, 'test'),
+(21, 'UX/UI Design'),
+(7, 'Vue.js');
 -- --------------------------------------------------------
 
 --

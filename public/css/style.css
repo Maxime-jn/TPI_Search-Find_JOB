@@ -787,6 +787,95 @@ main {
     font-size: 0.8rem;
 }
 
+.keywords-wrapper {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 8px;
+}
+
+.keywords-search {
+    width: 100%;
+    padding: 10px 14px;
+    border: none;
+    border-bottom: 1px solid #ddd;
+    font-size: 0.9rem;
+    outline: none;
+    background: #fafafa;
+    box-sizing: border-box;
+}
+
+.keywords-search:focus {
+    background: #fff;
+    border-bottom-color: #3498db;
+}
+
+.keywords-checkboxes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 12px;
+    max-height: 200px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #ccc transparent;
+}
+
+.keywords-checkboxes::-webkit-scrollbar {
+    width: 5px;
+}
+
+.keywords-checkboxes::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.keywords-checkboxes::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 10px;
+}
+
+.keyword-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: #f4f6f7;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    padding: 5px 12px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: background 0.2s, border-color 0.2s, color 0.2s;
+    user-select: none;
+}
+
+.keyword-checkbox:hover {
+    background: #e8f4fd;
+    border-color: #3498db;
+}
+
+.keyword-checkbox:has(input:checked) {
+    background: #3498db;
+    border-color: #2980b9;
+    color: #fff;
+}
+
+.keyword-checkbox input[type="checkbox"] {
+    width: auto;
+    margin: 0;
+    accent-color: #fff;
+}
+
+.keywords-count {
+    font-size: 0.8rem;
+    color: #3498db;
+    margin-top: 5px;
+    display: none;
+}
+
+.keywords-count.visible {
+    display: block;
+}
+
 .file-upload-area {
     border: 2px dashed #ddd;
     border-radius: 10px;

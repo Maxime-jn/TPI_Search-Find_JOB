@@ -22,6 +22,13 @@ $app->get('/logout', [loginCTRL::class, 'handleLogout']);
 
 // Routes for ads
 $app->get('/annonces', [adsCTRL::class, 'showAds']);
+
 $app->get('/annonces/ajouter', [adsCTRL::class, 'showAddAd']);
+$app->post('/annonces/ajouter', [adsCTRL::class, 'addAdPost']);
+
+
 $app->get('/annonces/{id}', [adsCTRL::class, 'showAdDetail']);
 $app->get('/annonces/{id}/modifier', [adsCTRL::class, 'showEditAd']);
+
+
+$app->post('/annonces/{id}/supprimer', [adsCTRL::class, 'deleteAds']);
