@@ -11,8 +11,9 @@
 <section class="ads-section">
     <div class="container">
         <div class="ads-filters">
-            <form class="search-bar">
-                <input type="text" placeholder="Rechercher une annonce..." class="search-input">
+            <form class="search-bar" method="GET" action="/annonces">
+                <input type="text" name="search" placeholder="Rechercher une annonce..." class="search-input"
+                    id="searchInput" value="<?= htmlspecialchars($_GET['search'] ?? '') ?>">
                 <button type="submit" class="btn btn-primary">Rechercher</button>
             </form>
         </div>

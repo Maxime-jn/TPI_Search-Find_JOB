@@ -20,7 +20,14 @@ class adsCTRL extends baseCTRL
             return baseCTRL::redirectWithStatus($response, "/login");
         }
 
-        $ads = Ads::selectAllAds();
+        $param = $request->getQueryParams();
+        $search = $param['search'] ?? '';
+
+        if ($search) {
+            $ads = Ads::searchAds($search);
+        } else {
+            $ads = Ads::selectAllAds();
+        }
 
         $layoutData = [
             'title' => 'Annonces',

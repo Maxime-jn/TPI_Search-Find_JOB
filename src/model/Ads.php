@@ -97,8 +97,19 @@ class Ads
         $sqlKw = "DELETE FROM `ad_keywords` WHERE ad_id = :id";
         Database::dbrun($sqlKw, [":id" => $adsId]);
 
-        // Supprimer l'annonce
+        // Supprimer l'annonceFF
         $sql = "DELETE FROM `ads` WHERE idAds = :id";
         Database::dbrun($sql, [":id" => $adsId]);
+    }
+
+    static function searchAds(string $search)
+    {
+        $sql = "SELECT `idAds`, `user_id`, `title`, `description`, `created_at`, `updated_at` 
+                FROM `ads`
+                WHERE `title` LIKE :search1 OR `description` LIKE :search2";
+        $param = [":search1" => "%$search%", ":search2" => "%$search%"];
+        $statement = Database::dbrun($sql, $param);
+        $statement->setFetchMode(\PDO::FETCH_PROPS_LATE | \PDO::FETCH_CLASS, self::class);
+        return $statement->fetchAll();
     }
 }
