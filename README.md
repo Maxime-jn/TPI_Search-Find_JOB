@@ -5,6 +5,8 @@
 **Nom du projet :** S&FO
 
 ---
+Lien vers planning : https://docs.google.com/spreadsheets/d/1YVPHi9ZwDxVRE7GXWQXVlgcDiXITY21WUghHoQoXtww/edit?usp=sharing
+---
 
 ## Utilisateurs
 
